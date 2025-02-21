@@ -60,11 +60,19 @@ class HomeController extends AppBaseController
         return view('home',compact('documents','activities','tagCounts','documentCounts','filesCounts'));
     }
 
+//    public function welcome()
+//    {
+//        \Artisan::call("inspire");
+//        $quotes = \Artisan::output();
+//        return redirect('/home',compact('quotes'));
+//    }
+// SE CAMBIA LA RUTA VERIFICAR QUE NO AFECTE 
+
     public function welcome()
     {
         \Artisan::call("inspire");
         $quotes = \Artisan::output();
-        return view('welcome',compact('quotes'));
+        return redirect('/login'); compact('quotes'); // Redirige a la ruta /login
     }
 
     public function profile(UpdateProfileRequest $request)
